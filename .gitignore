@@ -1,0 +1,21 @@
+# Ignore Visual Studio temp files
+.vs/
+*.user
+*.suo
+
+# Ignore build outputs
+bin/
+obj/
+*.dll
+*.exe
+
+# Ignore Node.js modules
+node_modules/
+.env
+
+# Ignore MAUI generated stuff
+platforms/
+wwwroot/
+
+# Ignore logs
+*.log
