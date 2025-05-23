@@ -1,0 +1,51 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Cores -->
+    <Color x:Key="PrimaryColor">#fdd835</Color>
+    <Color x:Key="SecondaryColor">#fdd835</Color>
+    <Color x:Key="AccentColor">#43a047</Color>
+    <Color x:Key="ErrorColor">#e53935</Color>
+    <Color x:Key="BackgroundColor">#FFFFFF</Color>
+    <Color x:Key="TextColor">#555</Color>
+    <Color x:Key="SubtitleColor">#888</Color>
+
+    <!-- Estilos Padrão -->
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <!-- Estilos Customizados -->
+    <Style x:Key="PrimaryEntry" TargetType="Entry">
+        <Setter Property="PlaceholderColor" Value="{StaticResource SubtitleColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="Margin" Value="0,0,0,10"/>
+        <Setter Property="BackgroundColor" Value="White"/>
+    </Style>
+
+    <Style x:Key="PrimaryPicker" TargetType="Picker">
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="BackgroundColor" Value="White"/>
+    </Style>
+
+    <Style x:Key="PrimaryButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}"/>
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="HeightRequest" Value="60"/>
+        <Setter Property="CornerRadius" Value="30"/>
+    </Style>
+
+    <Style x:Key="SecondaryButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource SecondaryColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="HeightRequest" Value="60"/>
+        <Setter Property="CornerRadius" Value="30"/>
+    </Style>
+</ResourceDictionary>
