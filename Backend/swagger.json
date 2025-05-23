@@ -1,0 +1,1030 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Score View",
+    "version": "1.0.0",
+    "description": "API para cadastro de usuários, perguntas, respostas e resultados."
+  },
+  "paths": {
+    "/usuarios": {
+      "get": {
+        "summary": "Listar todos os usuários",
+        "responses": {
+          "200": {
+            "description": "Lista de usuários",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "usuarios": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Usuario" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao listar usuários",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Criar novo usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NovoUsuario" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Usuário criado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Usuário criado" },
+                    "id": { "type": "integer", "example": 1 }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Campos obrigatórios ausentes",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao criar usuário",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuarios/{id}": {
+      "get": {
+        "summary": "Obter usuário por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dados do usuário",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "usuario": { "$ref": "#/components/schemas/Usuario" }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao buscar usuário",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualizar usuário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NovoUsuario" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Usuário atualizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Usuário atualizado com sucesso" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Campos obrigatórios ausentes",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao atualizar usuário",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletar usuário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário deletado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Usuário deletado com sucesso" }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao deletar usuário",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/perguntas": {
+      "get": {
+        "summary": "Listar todas as perguntas",
+        "responses": {
+          "200": {
+            "description": "Lista de perguntas ordenadas por ID decrescente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "perguntas": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Pergunta" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao listar perguntas",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Criar nova pergunta",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NovaPergunta" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Pergunta criada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Pergunta criada com sucesso" },
+                    "id": { "type": "integer", "example": 1 }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Campos obrigatórios ausentes",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao criar pergunta",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/perguntas/multiplas": {
+      "post": {
+        "summary": "Criar várias perguntas de uma vez",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": { "$ref": "#/components/schemas/NovaPergunta" }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Perguntas criadas com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "3 perguntas criadas com sucesso" },
+                    "ids": {
+                      "type": "array",
+                      "items": { "type": "integer" },
+                      "example": [1, 2, 3]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Formato inválido ou campos obrigatórios ausentes",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao criar perguntas",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/perguntas/{id}": {
+      "put": {
+        "summary": "Atualizar pergunta",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NovaPergunta" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pergunta atualizada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Pergunta atualizada com sucesso" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Campos obrigatórios ausentes",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "404": {
+            "description": "Pergunta não encontrada",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao atualizar pergunta",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletar pergunta",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pergunta deletada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Pergunta deletada com sucesso" }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Pergunta não encontrada",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao deletar pergunta",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/perguntas/multiplas/atualizar": {
+      "put": {
+        "summary": "Atualizar várias perguntas de uma vez",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "integer" },
+                    "coluna_dataset": { "type": "string" },
+                    "texto_pergunta": { "type": "string" }
+                  },
+                  "required": ["id", "coluna_dataset", "texto_pergunta"]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Perguntas atualizadas com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "2 perguntas atualizadas com sucesso" },
+                    "total": { "type": "integer", "example": 3 }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Formato inválido ou campos obrigatórios ausentes",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao atualizar perguntas",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/respostas": {
+      "get": {
+        "summary": "Listar todas as respostas",
+        "responses": {
+          "200": {
+            "description": "Lista de respostas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "respostas": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Resposta" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao listar respostas",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Criar nova resposta",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NovaResposta" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Resposta registrada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Resposta registrada" },
+                    "id": { "type": "integer", "example": 1 }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Campos obrigatórios ausentes",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao salvar resposta",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/respostas/{id}": {
+      "get": {
+        "summary": "Obter resposta por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dados da resposta",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "resposta": { "$ref": "#/components/schemas/Resposta" }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resposta não encontrada",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao buscar resposta",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualizar resposta",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NovaResposta" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Resposta atualizada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Resposta atualizada com sucesso" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Campos obrigatórios ausentes",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "404": {
+            "description": "Resposta não encontrada",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao atualizar resposta",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletar resposta",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta deletada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Resposta deletada com sucesso" }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resposta não encontrada",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao deletar resposta",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resultados": {
+      "get": {
+        "summary": "Listar todos os resultados",
+        "responses": {
+          "200": {
+            "description": "Lista de resultados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "resultados": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Resultado" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao listar resultados",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Criar novo resultado",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NovoResultado" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Resultado salvo com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Resultado salvo" },
+                    "id": { "type": "integer", "example": 1 }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Campos obrigatórios ausentes",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao registrar resultado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resultados/{id}": {
+      "get": {
+        "summary": "Obter resultado por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dados do resultado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "resultado": { "$ref": "#/components/schemas/Resultado" }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resultado não encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao buscar resultado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualizar resultado",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NovoResultado" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Resultado atualizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Resultado atualizado com sucesso" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Campos obrigatórios ausentes",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "404": {
+            "description": "Resultado não encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao atualizar resultado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletar resultado",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resultado deletado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Resultado deletado com sucesso" }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resultado não encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno ao deletar resultado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Erro" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Usuario": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "example": 1 },
+          "nome": { "type": "string", "example": "João Silva" },
+          "idade": { "type": "integer", "example": 30 },
+          "sexo": { "type": "string", "example": "Masculino" }
+        }
+      },
+      "NovoUsuario": {
+        "type": "object",
+        "required": ["nome", "idade", "sexo"],
+        "properties": {
+          "nome": { "type": "string", "example": "João Silva" },
+          "idade": { "type": "integer", "example": 30 },
+          "sexo": { "type": "string", "example": "Masculino" }
+        }
+      },
+      "Pergunta": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "example": 1 },
+          "coluna_dataset": { "type": "string", "example": "coluna_1" },
+          "texto_pergunta": { "type": "string", "example": "Você pratica exercícios regularmente?" }
+        }
+      },
+      "NovaPergunta": {
+        "type": "object",
+        "required": ["coluna_dataset", "texto_pergunta"],
+        "properties": {
+          "coluna_dataset": { "type": "string", "example": "coluna_1" },
+          "texto_pergunta": { "type": "string", "example": "Você pratica exercícios regularmente?" }
+        }
+      },
+      "Resposta": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "example": 1 },
+          "id_usuario": { "type": "integer", "example": 1 },
+          "id_pergunta": { "type": "integer", "example": 1 },
+          "resposta_sim_nao": { "type": "string", "example": "Sim" },
+          "valor_resposta": { "type": "string", "example": "3 vezes por semana" }
+        }
+      },
+      "NovaResposta": {
+        "type": "object",
+        "required": ["id_usuario", "id_pergunta", "resposta_sim_nao", "valor_resposta"],
+        "properties": {
+          "id_usuario": { "type": "integer", "example": 1 },
+          "id_pergunta": { "type": "integer", "example": 1 },
+          "resposta_sim_nao": { "type": "string", "example": "Sim" },
+          "valor_resposta": { "type": "string", "example": "3 vezes por semana" }
+        }
+      },
+      "Resultado": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "example": 1 },
+          "id_usuario": { "type": "integer", "example": 1 },
+          "pontuacao": { "type": "integer", "example": 85 },
+          "score": { "type": "string", "example": "Alto risco" }
+        }
+      },
+      "NovoResultado": {
+        "type": "object",
+        "required": ["id_usuario", "pontuacao", "score"],
+        "properties": {
+          "id_usuario": { "type": "integer", "example": 1 },
+          "pontuacao": { "type": "integer", "example": 85 },
+          "score": { "type": "string", "example": "Alto risco" }
+        }
+      },
+      "Erro": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string", "example": "Mensagem de erro descritiva" }
+        }
+      }
+    }
+  }
+}

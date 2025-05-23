@@ -1,0 +1,38 @@
+<%- include("../public/partials/header.ejs");  %>
+
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+
+    <div class="container" style="max-width: 500px;">
+
+        <!-- Logo com efeito de card -->
+        <div class="card shadow text-center p-3 mb-4">
+            <img src="/logo_white.jpg" alt="Logo" style="max-width: 150px;" class="mx-auto">
+        </div>
+
+        <!-- Card com os endpoints -->
+        <div class="card shadow text-center">
+            <div class="card-header">
+                <h5 class="mb-0">Endpoints Disponíveis</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Abaixo estão os endpoints disponíveis para consulta da API:</p>
+
+                <div class="d-grid gap-2">
+                    <a href="https://five-dsm-pi-backend.onrender.com/usuarios" class="btn btn-outline-primary" target="_blank">
+                        /usuarios
+                    </a>
+                    <a href="https://five-dsm-pi-backend.onrender.com/perguntas" class="btn btn-outline-secondary" target="_blank">
+                        /perguntas
+                    </a>
+                    <a href="https://five-dsm-pi-backend.onrender.com/respostas" class="btn btn-outline-success" target="_blank">
+                        /respostas
+                    </a>
+                    <a href="https://five-dsm-pi-backend.onrender.com/resultados" class="btn btn-outline-danger" target="_blank">
+                        /resultados
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
