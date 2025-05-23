@@ -14,7 +14,7 @@ Aplicativo mobile que realiza uma análise de crédito com base nas respostas de
 ## PARTICIPANTES:
 - [![GitHub](https://img.shields.io/badge/GitHub-allisonrps-blue?logo=github)](https://github.com/allisonrps) - **Allison Rodrigues de Paula e Silva**    
 - [![GitHub](https://img.shields.io/badge/GitHub-jed1rey-blue?logo=github)](https://github.com/jed1rey) - **Paula Cristina Abib Teixeira**
-- [![GitHub](https://img.shields.io/badge/GitHub-BrunoJose--dev-blue?logo=github)](https://github.com/PaulianeSilveira) - **Pauliane Ester Silveira**
+- [![GitHub](https://img.shields.io/badge/GitHub-PaulianeSilveira-blue?logo=github)](https://github.com/PaulianeSilveira) - **Pauliane Ester Silveira**
 - [![GitHub](https://img.shields.io/badge/GitHub-SamLope-blue?logo=github)](https://github.com/SamLope) - **Samir Lopes Rosa**
 
 ---
