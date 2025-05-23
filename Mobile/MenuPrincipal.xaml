@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Mobile.Views"
+    x:Class="Mobile.MenuPrincipal"
+    BarBackgroundColor="#fdd835"
+    BarTextColor="Black"
+    SelectedTabColor="#e53935"
+    UnselectedTabColor="#888">
+
+    <views:HomePage Title="Home" 
+                    IconImageSource="homep.png"/>
+    
+    <views:CadastroPage Title="Cadastro" 
+                        IconImageSource="login.png"/>
+    
+    <views:TestePage Title="Teste" 
+                     IconImageSource="teste.png"/>
+    
+    <views:ResultadoPage Title="Score" 
+                         IconImageSource="creditscore.png"/>
+    
+    <views:SobrePage Title="Sobre" 
+                     IconImageSource="sobre.png"/>
+    
+</TabbedPage>

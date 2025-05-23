@@ -1,0 +1,38 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.Views.HomePage"
+             Title="Home"
+             BackgroundColor="{StaticResource BackgroundColor}">
+
+    <Grid>
+        <StackLayout Padding="30"
+                     Spacing="25"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center">
+
+            <Image Source="logoscore.png"
+                   HeightRequest="350"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Bem-vindo ao ScoreView"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource PrimaryColor}" />
+
+            <Label Text="Aplicativo para classificar seu Score."
+                   FontSize="18"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource TextColor}" />
+
+            <Button Text="Iniciar Análise"
+                    Clicked="OnIniciarClicked"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    WidthRequest="200"
+                    HeightRequest="60"
+                    CornerRadius="30"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>
