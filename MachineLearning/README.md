@@ -138,3 +138,37 @@
 - **Pairplot**
 - **Countplot** (para a variável alvo `Credit_Mix`)
 - **Matriz de Correlação** e **Heatmap** para análise de relações entre variáveis numéricas
+
+
+
+### Questionário de Informações Financeiras (Relacionadas ao Dataset)
+
+- **Idade**  
+  *(coluna: `Age`)*
+
+- **Informe a sua renda líquida mensal**  
+  *(coluna: `Monthly_Inhand_Salary` - salário líquido mensal)*
+
+- **Informe o número de contas bancárias em que você é o titular**  
+  *(coluna: `Num_Bank_Accounts` - número de contas bancárias)*
+
+- **Informe o número de cartões de crédito que você possui**  
+  *(coluna: `Num_Credit_Card` - número de cartões de crédito)*
+
+- **Informe quantos empréstimos ativos você possui atualmente**  
+  *(coluna: `Num_of_Loan` - número de empréstimos)*
+
+- **Quantos dias, em média, você costuma atrasar o pagamento de dívidas?**  
+  *(coluna: `Delay_from_due_date` - dias de atraso em relação à data de vencimento)*
+
+- **Quantas vezes você se atrasou para fazer o pagamento de uma dívida?**  
+  *(coluna: `Num_of_Delayed_Payment` - número de dívidas em atraso)*
+
+- **Qual o valor total de dívidas não pagas (pendentes) que você tem no momento?**  
+  *(coluna: `Outstanding_Debt` - dívida pendente)*
+
+- **Qual o total de parcelas mensais (EMIs) que você possui?**  
+  *(coluna: `Total_EMI_per_month` - total de parcelas mensais)*
+
+- **Informe o valor total investido mensalmente**  
+  *(coluna: `Amount_invested_monthly` - valor investido mensalmente)*
