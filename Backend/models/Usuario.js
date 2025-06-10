@@ -9,9 +9,9 @@ class Usuario {
         });
     }
 
-    static criar(nome, idade, sexo, callback) {
-        const SQL = "INSERT INTO usuarios (nome, idade, sexo) VALUES (?, ?, ?)";
-        connection.query(SQL, [nome, idade, sexo], (err, result) => {
+    static criar(nome, sexo, callback) {
+        const SQL = "INSERT INTO usuarios (nome, sexo) VALUES (?, ?)";
+        connection.query(SQL, [nome, sexo], (err, result) => {
             if (err) return callback(err, null);
             return callback(null, result.insertId);
         });
