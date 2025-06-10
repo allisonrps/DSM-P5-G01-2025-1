@@ -12,7 +12,6 @@ module.exports = {
     },
 
 
-
     usuarioPorId: (req, res) => {
         const { id } = req.params;
 
@@ -33,14 +32,14 @@ module.exports = {
 
 
     criarUsuario: (req, res) => {
-        const { nome, idade, sexo } = req.body;
+        const { nome, sexo } = req.body;
 
-        if (!nome || !idade || !sexo) {
-            return res.status(400).json({ error: "Campos nome, idade e sexo são obrigatórios" });
+        if (!nome || !sexo) {
+            return res.status(400).json({ error: "Campos nome e sexo são obrigatórios" });
         }
 
-        const SQL = "INSERT INTO usuarios (nome, idade, sexo) VALUES (?, ?, ?)";
-        connection.query(SQL, [nome, idade, sexo], (err, result) => {
+        const SQL = "INSERT INTO usuarios (nome, sexo) VALUES (?, ?)";
+        connection.query(SQL, [nome, sexo], (err, result) => {
             if (err) {
                 console.error("Erro ao criar usuário:", err.message);
                 return res.status(500).json({ error: "Erro ao criar usuário" });
@@ -69,13 +68,13 @@ module.exports = {
 
     atualizarUsuario: (req, res) => {
         const { id } = req.params;
-        const { nome, idade, sexo } = req.body;
+        const { nome, sexo } = req.body;
 
-        if (!nome || !idade || !sexo) {
-            return res.status(400).json({ error: "Campos nome, idade e sexo são obrigatórios" });
+        if (!nome || !sexo) {
+            return res.status(400).json({ error: "Campos nome e sexo são obrigatórios" });
         }
 
-        const SQL = "UPDATE usuarios SET nome = ?, idade = ?, sexo = ? WHERE id = ?";
+        const SQL = "UPDATE usuarios SET nome = ?, sexo = ? WHERE id = ?";
         connection.query(SQL, [nome, idade, sexo, id], (err, result) => {
             if (err) {
                 console.error("Erro ao atualizar usuário:", err);
