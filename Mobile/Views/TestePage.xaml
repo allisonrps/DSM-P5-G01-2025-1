@@ -1,65 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Mobile.Views.TestePage"
              Title="Teste"
              BackgroundColor="{StaticResource BackgroundColor}">
 
-    <Grid>
-        <ScrollView>
-            <Grid RowDefinitions="Auto,Auto,*" 
-                  RowSpacing="40"
-                  VerticalOptions="Center"
-                  Padding="30,40">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="25"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     x:Name="MainStack">
 
-                <Image Source="logoscore.png" 
-                       HeightRequest="250" 
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       Grid.Row="0"/>
+            <!-- LOGO -->
+            <Image Source="logoscore.png"
+                   HeightRequest="220"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,0"/>
 
-                <Label x:Name="lblPergunta"
-                       FontSize="22"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       LineBreakMode="WordWrap"
-                       MaximumWidthRequest="300"
+            <!-- Pergunta atual -->
+            <Frame BackgroundColor="#fdd835"
+                   CornerRadius="20"
+                   Padding="25"
+                   HasShadow="True"
+                   BorderColor="WhiteSmoke"
+                   Margin="0,0,0,10">
+                <Label Text="{Binding PerguntaAtual.TextoPergunta}"
+                       FontSize="18"
+                       FontAttributes="None"
+                       HorizontalTextAlignment="Center"
                        TextColor="{StaticResource TextColor}"
-                       Grid.Row="1"/>
+                       LineBreakMode="WordWrap"/>
+            </Frame>
 
-                <Grid ColumnDefinitions="*,*" 
-                      ColumnSpacing="20"
-                      RowSpacing="0"
-                      VerticalOptions="End"
-                      Grid.Row="2">
+            <!-- Entry para resposta -->
+            <Entry Text="{Binding PerguntaAtual.ValorDigitado, Mode=TwoWay}"
+                   Keyboard="Numeric"
+                   Placeholder="Digite um valor"
+                   HorizontalOptions="Center"
+                   Style="{StaticResource PrimaryEntry}"
+                   TextChanged="OnEntryTextChanged"/>
 
-                    <Button Text="Sim" 
-                            Clicked="OnSimClicked"
-                            BackgroundColor="{StaticResource PrimaryColor}"
-                            TextColor="White"
-                            HeightRequest="60"
-                            FontSize="18"
-                            CornerRadius="30"/>
+            <!-- Botão Avançar -->
+            <Button x:Name="BotaoAvancar"
+                    Text="Avançar"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    TextColor="Black"
+                    CornerRadius="30"
+                    HeightRequest="50"
+                    IsEnabled="False"
+                    Clicked="OnAvancarClicked"/>
 
-                    <Button Text="Não" 
-                            Clicked="OnNaoClicked"
-                            BackgroundColor="{StaticResource SecondaryColor}"
-                            TextColor="{StaticResource TextColor}"
-                            HeightRequest="60"
-                            FontSize="18"
-                            CornerRadius="30"
-                            Grid.Column="1"/>
-                </Grid>
-            </Grid>
-        </ScrollView>
+            <!-- Botão Finalizar -->
+            <Button x:Name="BotaoFinalizar"
+                    Text="Finalizar Teste"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    TextColor="Black"
+                    CornerRadius="30"
+                    HeightRequest="50"
+                    IsVisible="False"
+                    Clicked="OnFinalizarClicked"/>
 
-        <ActivityIndicator x:Name="loadingIndicator"
-                          IsVisible="False"
-                          Color="{StaticResource PrimaryColor}"
-                          IsRunning="True"
-                          HorizontalOptions="Center"
-                          VerticalOptions="Center"
-                          BackgroundColor="Transparent"
-                          Scale="1.5"/>
-    </Grid>
+            <!-- ActivityIndicator -->
+            <ActivityIndicator x:Name="loadingIndicator"
+                               IsVisible="False"
+                               Color="{StaticResource PrimaryColor}"
+                               IsRunning="True"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

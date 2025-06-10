@@ -29,13 +29,13 @@ C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\mauisplash.stamp
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\mauifont.stamp
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\f\OpenSans-Regular.ttf
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\f\OpenSans-Semibold.ttf
-C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\r\drawable\score.png
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\r\drawable\sobre.png
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\r\drawable\creditscore.png
+C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\r\drawable\teste.png
+C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\r\drawable\score.png
+C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\r\drawable\login.png
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\r\drawable\logoscore.png
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\r\drawable\marcalogo.png
-C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\r\drawable\login.png
-C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\r\drawable\teste.png
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\r\drawable\homep.png
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\dotnet_bot.png
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resizetizer\r\drawable-xxhdpi\dotnet_bot.png
@@ -146,8 +146,6 @@ C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\bin\com.companyname.mobil
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\res\values\colors.xml
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\uploadflags.txt
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\resolvedassemblies.hash
-C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\arm64-v8a\System.Private.CoreLib.dll
-C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\armeabi-v7a\System.Private.CoreLib.dll
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\ar\Microsoft.Maui.Controls.resources.dll
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\ca\Microsoft.Maui.Controls.resources.dll
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\cs\Microsoft.Maui.Controls.resources.dll
@@ -386,8 +384,6 @@ C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\tr\Microsoft.Maui.
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\uk\Microsoft.Maui.Controls.resources.dll
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\vi\Microsoft.Maui.Controls.resources.dll
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\WindowsBase.dll
-C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\x86\System.Private.CoreLib.dll
-C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\x86_64\System.Private.CoreLib.dll
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\Xamarin.Android.Glide.Annotations.dll
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\Xamarin.Android.Glide.DiskLruCache.dll
 C:\maui\Mobile\Mobile\obj\Debug\net8.0-android\android\assets\Xamarin.Android.Glide.dll
