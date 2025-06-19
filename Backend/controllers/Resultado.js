@@ -9,14 +9,14 @@ module.exports = {
     },
 
     criarResultado: (req, res) => {
-        const { id_usuario, pontuacao, score } = req.body;
+        const { id_usuario, resultado } = req.body;
         
-        if (!id_usuario || pontuacao === undefined || score === undefined) {
-            return res.status(400).json({ error: "Campos id_usuario, pontuacao e score são obrigatórios" });
+        if (!id_usuario || resultado === undefined) {
+            return res.status(400).json({ error: "Campos id_usuario e resultado são obrigatórios" });
         }
 
-        const SQL = "INSERT INTO resultados (id_usuario, pontuacao, score) VALUES (?, ?, ?)";
-        connection.query(SQL, [id_usuario, pontuacao, score], (err, result) => {
+        const SQL = "INSERT INTO resultados (id_usuario, resultado) VALUES ( ?, ?)";
+        connection.query(SQL, [id_usuario, resultado], (err, result) => {
             if (err) return res.status(500).json({ error: "Erro ao registrar resultado" });
             return res.status(201).json({ message: "Resultado salvo", id: result.insertId });
         });
@@ -41,14 +41,14 @@ module.exports = {
     // Atualizar resultado por ID
     atualizarResultado: (req, res) => {
         const { id } = req.params;
-        const { id_usuario, pontuacao, score } = req.body;
+        const { id_usuario, resultado } = req.body;
 
-        if (!id_usuario || pontuacao === undefined || score === undefined) {
-            return res.status(400).json({ error: "Campos id_usuario, pontuacao e score são obrigatórios" });
+        if (!id_usuario || resultado === undefined ) {
+            return res.status(400).json({ error: "Campos id_usuario e resultado são obrigatórios" });
         }
 
-        const SQL = "UPDATE resultados SET id_usuario = ?, pontuacao = ?, score = ? WHERE id = ?";
-        connection.query(SQL, [id_usuario, pontuacao, score, id], (err, result) => {
+        const SQL = "UPDATE resultados SET id_usuario = ?, resultado = ? WHERE id = ?";
+        connection.query(SQL, [id_usuario, resultado, id], (err, result) => {
             if (err) return res.status(500).json({ error: "Erro ao atualizar resultado" });
             
             if (result.affectedRows === 0) {

@@ -1,1 +1,1 @@
-C:\maui\Mobile\Mobile\Mobile.csproj;x64
+C:\Users\allis\OneDrive\Área de Trabalho\5º SEMESTRE\PI\DSM-P5-G01-2025-1\Mobile\Mobile.csproj;x64
