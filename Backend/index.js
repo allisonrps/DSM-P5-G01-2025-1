@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const app = express();
-const porta = process.env.PORT || 4000;
+const porta = process.env.PORT || 3000;
 
 const connection = require("./database/connection");
 
@@ -38,9 +38,10 @@ app.use("/respostas", respostaRoutes);
 app.use("/resultados", resultadoRoutes);
 
 // Start do servidor
-app.listen(porta, () => {
+app.listen(porta, '0.0.0.0', () => {
     console.log("Servidor rodando na porta: " + porta);
 });
+
 
 // Rota padrão para teste rápido
 app.get("/ping", (req, res) => {
