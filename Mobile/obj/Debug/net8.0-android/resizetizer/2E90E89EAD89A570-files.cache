@@ -1,4 +1,7 @@
 ﻿obj\Debug\net8.0-android\resizetizer\r\drawable\creditscore.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\fundogreen.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\fundored.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\fundoyelow.png
 obj\Debug\net8.0-android\resizetizer\r\drawable\homep.png
 obj\Debug\net8.0-android\resizetizer\r\drawable\login.png
 obj\Debug\net8.0-android\resizetizer\r\drawable\logogreen.png
